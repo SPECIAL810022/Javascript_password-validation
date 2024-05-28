@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>mobile validation</title>
+</head>
+<body>
+
+
+<div>
+       <form onsubmit="return myfun()" action="onload.html">
+       	
+          Enter your number : <input type="password" id="mp3">
+        
+       <span id="sp"></span><br>
+       <input type="submit" value="submit">
+
+
+       </form>
+</div>
+    <script type="text/javascript">
+    	
+       function myfun(){
+
+          var a = (document.getElementById('mp3').value);
+
+          if (a == '') {
+          	document.getElementById('sp').innerHTML="please fill your mobile number";
+            document.getElementById('sp').style.color = "red";
+          	return false;
+          } 
+          if (a.length<10)  {
+          	document.getElementById('sp').innerHTML="please enter your 10 digit number";
+            document.getElementById('sp').style.color = "red";
+          	return false;
+          }
+      
+        // if (a.charAt(0)!=9) && (a.charAt(0)!=8) && (a.charAt(0)!=7) {
+        //     document.getElementById('sp').innerHTML="please enter your 10 digit number";
+        //     document.getElementById('sp').style.color = "red";
+        //     return false;
+        //   }
+
+     else if (a.search(/[0-9]/) == -1) {
+        document.getElementById('sp').innerHTML="atleast one numerical value";
+        document.getElementById('sp').style.color='red';
+        return false;
+      }
+     
+
+   else  if (a.search(/[a-z]/) == -1) {
+        document.getElementById('sp').innerHTML="atleast one lower case value";
+        document.getElementById('sp').style.color='red';
+        return false;
+      }
+
+
+    else  if (a.search(/[A-Z]/) == -1) {
+        document.getElementById('sp').innerHTML="atleast one upper case value";
+        document.getElementById('sp').style.color='red';
+        return false;
+      
+}
+
+        else  if ((a.search(/[@]/) == -1) && (a.search(/[$]/) == -1)){
+        document.getElementById('sp').innerHTML="atleast one special charector value";
+        document.getElementById('sp').style.color='red';
+        return false;
+      
+}
+
+
+         if ((a.charAt(0)!=9) && (a.charAt(0)!=8) && (a.charAt(0)!=7)) {
+            document.getElementById('sp').innerHTML="please start input with 9,8,7 number";
+            document.getElementById('sp').style.color = "red";
+            return false;
+          }
+    
+        else {
+           document.getElementById('sp').innerHTML= "successful";
+           document.getElementById('sp').style.color='green';
+   }
+      
+}
+      
+
+
+
+    </script>
+
+
+
+</body>
+</html>
